@@ -79,8 +79,9 @@ module.exports = NodeHelper.create({
               config.vin = vehicles[0].vehicleConfig.vin;
               vehicle = await client.getVehicle(config.vin);
           } else {
-              console.error(`The VIN supplied in the config was invalid, and there are ${vehicles.length} possible vehicles available.  Please supply a valid VIN for the needed vehicle.`);
-              throw new Error(`Unable to get the vehicle with VIN ${this.config.vin}.`);
+              console.warn(`The VIN supplied in the config ${this.config.vin} was invalid, and there are ${vehicles.length} possible vehicles available.  By default, choosing the first vehicle.`);
+              config.vin = vehicles[0].vehicleConfig.vin;
+              vehicle = await client.getVehicle(config.vin);
           } 
       }
 

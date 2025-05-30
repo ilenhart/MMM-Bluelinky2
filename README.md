@@ -28,7 +28,7 @@ Copy the example config to your MagicMirror config file:
     password: "your-bluelink-password",
     region: 'EU',
     pin: '0123',
-    vin: 'your-car-vin' //Semi-optional.  If you have multiple cars, this is required
+    vin: 'your-car-vin' //Optional.  If not supplied or invalid, chooses your first (or only) car
     refreshInterval:  1000 * 60 * 60, // 60 minutes,
     refreshIntervalWhileCharging: 1000 * 60 * 5 // 5 minutes
   }
@@ -39,7 +39,7 @@ Copy the example config to your MagicMirror config file:
 | username  | yes  | Your bluelink username |  |
 | password  | yes | Your bluelink password | |
 | pin  | yes | The pin you use to refresh bluelink data in the app |   |
-| vin  | yes/no | VIN of your car. Required if you have more than one, optional otherwise |   |
+| vin  | no | VIN of your car. If not supplied, chooses the first (or only) car you have. |   |
 | region| yes | `EU` `CA` or `US` | `US` |
 | name | no | Optional name | |
 | refreshInterval | no | When should the data be refreshed when not charging? | `1000 * 60 * 60` (60 minutes) |
