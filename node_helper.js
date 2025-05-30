@@ -7,7 +7,7 @@
  */
 
 const NodeHelper = require('node_helper');
-const Bluelinky = require('bluelinky');
+
 
 module.exports = NodeHelper.create({
 
@@ -26,6 +26,8 @@ module.exports = NodeHelper.create({
       pin: this.config.pin,
       vin : this.config.vin
     };
+
+    const Bluelinky = require('bluelinky').default;
 
     const client = new Bluelinky(config);
 
