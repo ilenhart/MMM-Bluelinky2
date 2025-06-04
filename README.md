@@ -30,7 +30,9 @@ Copy the example config to your MagicMirror config file:
     pin: '0123',
     vin: 'your-car-vin' //Optional.  If not supplied or invalid, chooses your first (or only) car
     refreshIntervalWhileDisconnected:  1000 * 60 * 60, // 60 minutes,
-    refreshIntervalWhileCharging: 1000 * 60 * 5 // 5 minutes
+    refreshIntervalWhileCharging: 1000 * 60 * 5, // 5 minutes
+    refreshIntervalWhileUnderBatteryLevel:1000 * 60 * 5, // 5 minutes
+    underBatteryLevelAmount: 50 //50% charged, etc.
   }
 },
 ```
@@ -43,7 +45,9 @@ Copy the example config to your MagicMirror config file:
 | region| yes | `EU` `CA` or `US` | `US` |
 | name | no | Optional name | |
 | refreshIntervalWhileDisconnected | no | When should the data be refreshed when not charging? | `1000 * 60 * 60` (60 minutes) |
-| refreshIntervalWhileCharging | no | When should the data be refreshed when the car is charging? | `1000 * 60 * 10` (10 minutes) |
+| refreshIntervalWhileCharging | no | When should the data be refreshed when the car is charging? | `1000 * 60 * 5` (5 minutes) |
+| refreshIntervalWhileUnderBatteryLevel | no | How often to refresh when battery is under a certain level | `1000 * 60 * 5` (5 minutes) |
+| underBatteryLevelAmount | no | The level for the previous refresh interval to use | 50 |
 | wakeOnModuleLoad | no | When true, on initial module load the car will be woken up when in sleep mode to get the latest data | `false` |
 | wakeOnRefresh | no | When set to true, the car will be woken up every time the module refreshes his data (see refreshInterval) | `false` |
 | showLastUpdated | no | Show 'Updated 4 minutes ago' at the bottom | `true` |

@@ -86,7 +86,18 @@ Module.register("MMM-Bluelinky2",{
 
 		batteryContent.setAttribute('width', this.battery_level/100*batteryWidth);
 		batteryContent.setAttribute('height', batteryHeight*0.9);
-		batteryContent.setAttribute('style', "fill:rgba(45,220,45,0.7)");
+
+		var fillColor = "fill:rgba(45,220,45,0.7)";
+		if (this.battery_level < 75)
+			fillColor = "fill:rgba(220,220,45,0.7)";
+		else if (this.battery_level <= 50)
+			fillColor = "fill:rgba(220,120,45,0.7)";
+		else if (this.battery_level < 25)
+			fillColor = "fill:rgba(220,45,45,0.7)";
+		else
+			fillColor = "fill:rgba(45,220,45,0.7)";
+
+		batteryContent.setAttribute('style', fillColor );
 		batteryContent.setAttribute("rx", batteryWidth/200);
 		batteryContent.setAttribute("ry", batteryHeight/50);
 		shiftedContentContainer.appendChild(batteryContent);

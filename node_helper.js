@@ -113,9 +113,19 @@ module.exports = NodeHelper.create({
       self.sendSocketNotification("CAR_DATA", newCarData);
 
       if (vehicleStatus.evStatus.batteryCharge) {
+        //Battery is currently charging, so refresh according to our config.
         setTimeout(function() { self.getData(); }, this.config.refreshIntervalWhileCharging);
-      } else {
-        setTimeout(function() { self.getData(); }, this.config.refreshIntervalWhileDisconnected);
+
+      } else { // Not charging at the moment
+        //If the battery level is under the configured level, refresh according to the config
+        //Why? Last we heard, the car was not charging, but are more likely to be charging since the battery is low.
+        // Therefore, check more often in this case, just to pick up any changes to charging status.
+        if (this.config.underBatteryLevelAmount >= vehicleStatus.evStatus.batteryCharge) {
+          setTimeout(function() { self.getData(); }, this.config.refreshIntervalWhileUnderBatteryLevel);
+        } else {
+          //Otherwise, we have enough battery and we're not charging, so don't worry so much.
+          setTimeout(function() { self.getData(); }, this.config.refreshIntervalWhileDisconnected);
+        }
       }
     });
   },
