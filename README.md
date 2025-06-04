@@ -29,7 +29,7 @@ Copy the example config to your MagicMirror config file:
     region: 'EU',
     pin: '0123',
     vin: 'your-car-vin' //Optional.  If not supplied or invalid, chooses your first (or only) car
-    refreshInterval:  1000 * 60 * 60, // 60 minutes,
+    refreshIntervalWhileDisconnected:  1000 * 60 * 60, // 60 minutes,
     refreshIntervalWhileCharging: 1000 * 60 * 5 // 5 minutes
   }
 },
@@ -42,7 +42,7 @@ Copy the example config to your MagicMirror config file:
 | vin  | no | VIN of your car. If not supplied, chooses the first (or only) car you have. |   |
 | region| yes | `EU` `CA` or `US` | `US` |
 | name | no | Optional name | |
-| refreshInterval | no | When should the data be refreshed when not charging? | `1000 * 60 * 60` (60 minutes) |
+| refreshIntervalWhileDisconnected | no | When should the data be refreshed when not charging? | `1000 * 60 * 60` (60 minutes) |
 | refreshIntervalWhileCharging | no | When should the data be refreshed when the car is charging? | `1000 * 60 * 10` (10 minutes) |
 | wakeOnModuleLoad | no | When true, on initial module load the car will be woken up when in sleep mode to get the latest data | `false` |
 | wakeOnRefresh | no | When set to true, the car will be woken up every time the module refreshes his data (see refreshInterval) | `false` |

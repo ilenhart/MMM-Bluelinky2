@@ -52,7 +52,7 @@ describe('Node Helper', () => {
       pin: '1234',
       wakeOnRefresh: false,
       wakeOnModuleLoad: false,
-      refreshInterval: 1000,
+      refreshIntervalWhileDisconnected: 1000,
       refreshIntervalWhileCharging: 500
     };
 
@@ -86,7 +86,7 @@ describe('Node Helper', () => {
 
     // Setup config
     nodeHelper.config = {
-      refreshInterval: 1000,
+      refreshIntervalWhileDisconnected: 1000,
       refreshIntervalWhileCharging: 500,
       wakeOnRefresh: false,
       wakeOnModuleLoad: false
@@ -128,7 +128,7 @@ describe('Node Helper', () => {
 
     // Setup config
     nodeHelper.config = {
-      refreshInterval: 1000,
+      refreshIntervalWhileDisconnected: 1000,
       refreshIntervalWhileCharging: 500,
       wakeOnRefresh: false,
       wakeOnModuleLoad: false

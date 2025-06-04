@@ -133,7 +133,7 @@ test('Testing Bluelinky with real data',  () => {
     }
 
     expect(module.defaults).toEqual({
-      refreshInterval: 1000 * 60 * 60,
+      refreshIntervalWhileDisconnected: 1000 * 60 * 60,
       refreshIntervalWhileCharging: 1000 * 60 * 10,
       wakeOnModuleLoad: false,
       wakeOnRefresh: false,
