@@ -24,7 +24,11 @@ module.exports = NodeHelper.create({
       password: this.config.password,
       region: this.config.region,
       pin: this.config.pin,
-      vin : this.config.vin
+      vin : this.config.vin,
+      refreshIntervalWhileDisconnected : 1000 * 60 * 30, //30 mins
+      refreshIntervalWhileCharging : 1000 * 60 * 5, // 5 mins
+      underBatteryLevelAmount : 50,
+      refreshIntervalWhileUnderBatteryLevel : 1000 * 60 * 5, // 5 mins
     };
 
     const Bluelinky = require('bluelinky').default;
